@@ -1,6 +1,5 @@
 ---
 - handlers:
     - name: restart docker
-      command: systemctl daemon-reload
       service: name=docker state=restarted
     
