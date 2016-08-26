@@ -1,0 +1,15 @@
+---
+- name: include install.yml
+  include: install.yml
+  
+- name: include config.yml
+  include: config.yml
+  
+- name: include service.yml
+  include: service.yml
+
+  
+
+  
+  
+  

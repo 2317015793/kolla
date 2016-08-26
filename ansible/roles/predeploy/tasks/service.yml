@@ -1,0 +1,10 @@
+---
+- name: start the docker service
+  service: name=docker enabled=yes state=started
+
+- name: start the ntpd service
+  service: name=ntpd enabled=yes state=started
+  
+- name: stop the libvirtd service
+  service: name=libvirtd enabled=no state=stopped
+  

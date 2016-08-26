@@ -1,0 +1,6 @@
+---
+- name: Install required soft on all node
+  hosts: all
+  roles:
+    - predeploy
+    

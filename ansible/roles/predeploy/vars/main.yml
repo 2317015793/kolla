@@ -1,0 +1,3 @@
+kolla_conf_dir: '/etc/systemd/system/docker.service.d'
+docker_conf: '/etc/sysconfig/docker'
+insecure_registry: '10.158.113.148:5000'

@@ -39,6 +39,7 @@ Options:
     --verbose, -v                      Increase verbosity of ansible-playbook
 
 Commands:
+    predeploy           Do pre-deployment for hosts
     prechecks           Do pre-deployment checks for hosts
     mariadb_recovery    Recover a completely stopped mariadb cluster
     bootstrap-servers   bootstrap servers with kolla deploy dependencies
@@ -131,6 +132,10 @@ esac
 done
 
 case "$1" in
+
+(predeploy)
+        ACTION="Pre-deployment"
+        PLAYBOOK="${BASEDIR}/ansible/predeploy.yml"
 
 (prechecks)
         ACTION="Pre-deployment checking"

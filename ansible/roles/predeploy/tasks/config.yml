@@ -1,0 +1,15 @@
+---
+- name: create {{kolla_conf_dir}} dir
+  command: mkdir -p {{kolla_conf_dir}}  
+  
+- name: create {{kolla_conf_dir}}/kolla.conf file 
+  command: echo -e "[Service]\eMountFlags=shared" > {{kolla_conf_dir}}/kolla.conf
+  notify: 
+    - restart docker
+    
+- name: notify docker to use insecure registry
+  command: line_num=$(cat -n docker.conf | grep insecure-registry | awk '{print $1}') 
+            && sed -i "${line_num}a INSECURE_REGISTRY='--insecure-registry {{insecure_registry}}'" {{docker_conf}}
+  notify:
+    - restart docker
+    
